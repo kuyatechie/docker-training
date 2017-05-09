@@ -1,0 +1,26 @@
+version: '2'
+services:
+    flask:
+        build: ./flask
+        command: python /app/app.py
+        privileged: true
+        restart: always
+        volumes:
+            - $PWD/flask:/app
+        expose:
+            - 8080
+
+    nginx:
+        image: nginx
+        command: nginx
+        privileged: true
+        restart: always
+        volumes:
+            - $PWD/nginx/nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - 8000
+
+networks:
+    default:
+        external:
+            name: docker-training
