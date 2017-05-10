@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     name=str(os.environ["NAME"])
-    return "Hello {}!".format(name)
+    return "Hello {}. Welcome to Docker! From your Friend, {}!".format(name, os.getpid())
 
 @app.route("/http-normal")
 def http():

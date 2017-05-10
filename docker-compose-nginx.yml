@@ -14,11 +14,10 @@ services:
         image: nginx
         command: nginx
         privileged: true
-        restart: always
         volumes:
             - $PWD/nginx/nginx.conf:/etc/nginx/nginx.conf
         ports:
-            - 8000
+            - 8000:8000
 
 networks:
     default:

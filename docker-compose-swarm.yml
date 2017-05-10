@@ -1,0 +1,23 @@
+version: '3'
+services:
+    flask:
+        build: ./flask
+        deploy:
+            replicas: 6
+            update_config:
+                parallelism: 2
+                delay: 10s
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 50M
+            restart_policy:
+                condition: on-failure
+        ports:
+            - 8080:8080
+        networks:
+            - docker-swarm
+networks:
+    default:
+        external:
+            name: docker-swanrm
