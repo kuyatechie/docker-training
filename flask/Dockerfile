@@ -11,7 +11,7 @@ WORKDIR /app
 ADD . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --proxy=http://10.158.17.67:8080 -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
